@@ -1,0 +1,46 @@
+run = "npm run replit"
+entrypoint = "src/app/page.tsx"
+
+hidden = [".build", ".config"]
+
+[nix]
+channel = "stable-23_11"
+
+[env]
+PATH = "/home/runner/$REPL_SLUG/.config/npm/node_global/bin:/home/runner/$REPL_SLUG/node_modules/.bin"
+PORT = "3000"
+NODE_ENV = "development"
+XDG_CONFIG_HOME = "/home/runner/.config"
+npm_config_prefix = "/home/runner/$REPL_SLUG/.config/npm/node_global"
+
+[packager]
+language = "nodejs"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+enabledForHosting = false
+
+[languages]
+
+[languages.typescript]
+pattern = "**/{*.ts,*.js,*.tsx,*.jsx}"
+
+[languages.typescript.languageServer]
+start = "typescript-language-server --stdio"
+
+[deployment]
+run = ["sh", "-c", "npm run start"]
+deploymentTarget = "cloudrun"
+
+# Configure the Run button to execute the frontend workflow
+button.run = "Frontend Dev"
+
+# Define the workflows
+[workflow.Frontend]
+name = "Frontend Dev"
+command = "npm run dev"
+
+[workflow.Backend]
+name = "Backend Dev"
+command = "cd backend && node index.js" 

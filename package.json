@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "install-all": "npm install && cd backend && npm install",
+    "replit": "next dev -p 3000 -H 0.0.0.0"
   },
   "keywords": [],
   "author": "",
