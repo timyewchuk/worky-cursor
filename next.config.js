@@ -16,11 +16,6 @@ const nextConfig = {
       ],
     },
   },
-  // Configure webserver to bind to all networks (important for Replit)
-  webServerConfig: {
-    hostname: '0.0.0.0',
-    port: process.env.PORT || 3000,
-  },
 };
 
 module.exports = nextConfig; 
